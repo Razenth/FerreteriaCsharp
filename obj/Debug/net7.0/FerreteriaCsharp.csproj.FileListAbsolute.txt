@@ -26,3 +26,7 @@ C:\Santi Programa\SantiagoDocuments\NetCore\FerreteriaCsharp\obj\Debug\net7.0\re
 C:\Santi Programa\SantiagoDocuments\NetCore\FerreteriaCsharp\obj\Debug\net7.0\FerreteriaCsharp.pdb
 C:\Santi Programa\SantiagoDocuments\NetCore\FerreteriaCsharp\obj\Debug\net7.0\FerreteriaCsharp.genruntimeconfig.cache
 C:\Santi Programa\SantiagoDocuments\NetCore\FerreteriaCsharp\obj\Debug\net7.0\ref\FerreteriaCsharp.dll
+C:\Users\APM02-039\Documents\SantiDocum\.Net\C#\FerreteriaCsharp\bin\Debug\net7.0\ConsoleTables.dll
+C:\Users\APM02-039\Documents\SantiDocum\.Net\C#\FerreteriaCsharp\obj\Debug\net7.0\FerreteriaCsharp.csproj.AssemblyReference.cache
+C:\Users\APM02-039\Documents\SantiDocum\.Net\C#\FerreteriaCsharp\obj\Debug\net7.0\FerreteriaCsharp.csproj.CopyComplete
+C:\Users\APM02-039\Documents\SantiDocum\.Net\C#\FerreteriaCsharp\bin\Debug\net7.0\BetterConsoleTables.dll

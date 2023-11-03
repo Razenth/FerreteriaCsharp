@@ -1,11 +1,68 @@
 {
   "version": 3,
   "targets": {
-    "net7.0": {}
+    "net7.0": {
+      "BetterConsoleTables/1.1.3": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/BetterConsoleTables.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/BetterConsoleTables.dll": {}
+        }
+      },
+      "ConsoleTables/2.6.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/ConsoleTables.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/ConsoleTables.dll": {
+            "related": ".pdb"
+          }
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "BetterConsoleTables/1.1.3": {
+      "sha512": "ILweE/pGE7gK2v+5+PaddZtvAaa+1p8QSAgR3JhnU3rMD0F7KS8paRCwJsVhWC6qb//Va4jryV2vU28+MJzmhA==",
+      "type": "package",
+      "path": "betterconsoletables/1.1.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "betterconsoletables.1.1.3.nupkg.sha512",
+        "betterconsoletables.nuspec",
+        "lib/net471/BetterConsoleTables.dll",
+        "lib/net5.0/BetterConsoleTables.dll",
+        "lib/netstandard1.3/BetterConsoleTables.dll",
+        "lib/netstandard2.0/BetterConsoleTables.dll"
+      ]
+    },
+    "ConsoleTables/2.6.1": {
+      "sha512": "TyU885plpk88kMxgayy5+QQvtt/t3ZR45+vSvaKqZiaK+YsGVE6Mv7sV3fwjUMv3jHT15DdkpxW/+o+uc+bAJQ==",
+      "type": "package",
+      "path": "consoletables/2.6.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Readme.md",
+        "consoletables.2.6.1.nupkg.sha512",
+        "consoletables.nuspec",
+        "icon.png",
+        "lib/netstandard2.1/ConsoleTables.dll",
+        "lib/netstandard2.1/ConsoleTables.pdb"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    "net7.0": []
+    "net7.0": [
+      "BetterConsoleTables >= 1.1.3",
+      "ConsoleTables >= 2.6.1"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\APM02-039\\.nuget\\packages\\": {}
@@ -13,11 +70,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\APM02-039\\Documents\\SantiDocum\\.Net\\C#\\FerreteriaCsharp\\FerreteriaCsharp.csproj",
+      "projectUniqueName": "c:\\Users\\APM02-039\\Documents\\SantiDocum\\.Net\\C#\\FerreteriaCsharp\\FerreteriaCsharp.csproj",
       "projectName": "FerreteriaCsharp",
-      "projectPath": "C:\\Users\\APM02-039\\Documents\\SantiDocum\\.Net\\C#\\FerreteriaCsharp\\FerreteriaCsharp.csproj",
+      "projectPath": "c:\\Users\\APM02-039\\Documents\\SantiDocum\\.Net\\C#\\FerreteriaCsharp\\FerreteriaCsharp.csproj",
       "packagesPath": "C:\\Users\\APM02-039\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\APM02-039\\Documents\\SantiDocum\\.Net\\C#\\FerreteriaCsharp\\obj\\",
+      "outputPath": "c:\\Users\\APM02-039\\Documents\\SantiDocum\\.Net\\C#\\FerreteriaCsharp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\APM02-039\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -43,6 +100,16 @@
     "frameworks": {
       "net7.0": {
         "targetAlias": "net7.0",
+        "dependencies": {
+          "BetterConsoleTables": {
+            "target": "Package",
+            "version": "[1.1.3, )"
+          },
+          "ConsoleTables": {
+            "target": "Package",
+            "version": "[2.6.1, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "5w+h+GUr0V+3SW7QNHSv05tYT959/4Rnf0MJiai4N5sxt59oddhsaBy0HCJeoiFjGfPERzwxIYisPTGN13uDpA==",
+  "dgSpecHash": "xVFzTUHFH/wWq8d61jnNSrkc7STYsSXLIgI3gOTTjvIwadKjcXPrVTrwR5jt1exSVHNmD8NK40tlAwejJX7fwA==",
   "success": true,
   "projectFilePath": "C:\\Users\\APM02-039\\Documents\\SantiDocum\\.Net\\C#\\FerreteriaCsharp\\FerreteriaCsharp.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\APM02-039\\.nuget\\packages\\betterconsoletables\\1.1.3\\betterconsoletables.1.1.3.nupkg.sha512",
+    "C:\\Users\\APM02-039\\.nuget\\packages\\consoletables\\2.6.1\\consoletables.2.6.1.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using BetterConsoleTables;
+using ConsoleTables;
 
 namespace FerreteriaCsharp.Classes
 {
@@ -41,13 +44,10 @@ namespace FerreteriaCsharp.Classes
         public void ListProducts()
         {
             Console.Clear();
-            foreach (var e in _productos)
-            {
-                Console.WriteLine("PRODUCTO {3}:\nNombre Producto: {0} \nPrecio Unitario: {1}\nCantidad Existente: {2}\n--------------------------",
-                e.Nombre, e.PrecioUnit, e.Cantidad, _productos.IndexOf(e) + 1);
-            }
-            Console.WriteLine("Presione cualquier tecla para continuar");
-            Console.ReadLine();
+            var table = new Table("ID", "Nombre Producto", "Precio Unitario", "Cantidad Existente");
+            _productos.ForEach(x => table.AddRow(x.Id, x.Nombre, x.PrecioUnit, x.Cantidad));
+            table.Config = TableConfiguration.UnicodeAlt();
+            Console.WriteLine(table.ToString());
         }
 
         public void EmptyProducts()
@@ -62,14 +62,13 @@ namespace FerreteriaCsharp.Classes
             }
             else
             {
-                Console.WriteLine("PRODUCTOS A AGOTARSE:");
+                var table = new Table("Nombre Producto", "Cantidad Existente", "Stock Mínimo");
                 foreach (var e in newlist)
                 {
-                    Console.WriteLine("----------------------------\n Nombre Producto: {0}\n Cantidad Existente: {1}\n Stock Minimo: {2}\n----------------------------",
-                    e.Nombre, e.Cantidad, e.StockMin);
+                    table.AddRow(e.Nombre, e.Cantidad, e.StockMin);
                 }
-                Console.WriteLine("Presione cualquier tecla para continuar");
-                Console.ReadLine();
+                table.Config = TableConfiguration.UnicodeAlt();
+                Console.WriteLine(table.ToString());
             }
 
         }
@@ -78,28 +77,25 @@ namespace FerreteriaCsharp.Classes
         {
             Console.Clear();
             var newlist = from e in _productos
-                          where e.Cantidad < e.StockMin
-                          select new ProductoDto()
-                          {
-                              Nombre = e.Nombre,
-                              ValorTotal = e.StockMax - e.Cantidad
-                          };
+                        where e.Cantidad < e.StockMin
+                        select new ProductoDto()
+                        {
+                            Nombre = e.Nombre,
+                            ValorTotal = e.StockMax - e.Cantidad
+                        };
             if (newlist.Count() == 0)
             {
                 Console.WriteLine("No hay productos a comprar");
-                Console.WriteLine("Presione cualquier tecla para continuar");
-                Console.ReadLine();
             }
             else
             {
-                Console.WriteLine("PRODUCTOS A COMPRAR:");
+                var table = new Table("Nombre Producto", "Cantidad a Comprar");
                 foreach (var e in newlist)
                 {
-                    Console.WriteLine("----------------------------\n Nombre Producto: {0}\n Cantidad a Comprar: {1} \n----------------------------",
-                    e.Nombre, e.ValorTotal);
+                    table.AddRow(e.Nombre, e.ValorTotal);
                 }
-                Console.WriteLine("Presione cualquier tecla para continuar");
-                Console.ReadLine();
+                table.Config = TableConfiguration.UnicodeAlt();
+                Console.WriteLine(table.ToString());
             }
         }
 
@@ -110,19 +106,16 @@ namespace FerreteriaCsharp.Classes
             if (newlist.Count() == 0)
             {
                 Console.WriteLine("No hay facturas con esta fecha de creacion");
-                Console.WriteLine("Presione cualquier tecla para continuar");
-                Console.ReadLine();
             }
             else
             {
-                Console.WriteLine("FACTURAS DE ENERO:");
+                var table = new Table("Cliente", "Nro de Factura", "Fecha de Creacion", "Total Factura");
                 foreach (var e in newlist)
                 {
-                    Console.WriteLine("----------------------------\n ID Cliente: {3}\n Nro de Factura: {0}\n Fecha: {1}\n Total Factura: {2}\n----------------------------",
-                        e.NroFactura, e.Fecha, e.TotalFactura, e.IdCliente);
+                    table.AddRow(e.IdCliente, e.NroFactura, e.Fecha, e.TotalFactura);
                 }
-                Console.WriteLine("Presione cualquier tecla para continuar");
-                Console.ReadLine();
+                table.Config = TableConfiguration.UnicodeAlt();
+                Console.WriteLine(table.ToString());
             }
         }
 
@@ -137,8 +130,6 @@ namespace FerreteriaCsharp.Classes
                 if (newlist.Count() == 0)
                 {
                     Console.WriteLine("El número de factura digitada no existe");
-                    Console.WriteLine("Presione cualquier tecla para continuar");
-                    Console.ReadLine();
                 }
                 else
                 {
@@ -153,44 +144,40 @@ namespace FerreteriaCsharp.Classes
                                         IdFactura = fa.NroFactura
                                     };
                     Console.Clear();
-                    Console.WriteLine("PRODUCTOS FACTURA {0}", nrBill);
+                    var table = new Table("Nombre Producto", "Precio Unitario", "Cantidad Comprada");
                     foreach (var e in ListProducts)
                     {
-                        Console.WriteLine("----------------------------\n Nombre Producto: {0}\n Precio Unitario: {1}\n Cantidad Comprada: {2}\n----------------------------",
-                            e.NombreProducto, e.PrecioUnitario, e.TotalVendidos);
+                        table.AddRow(e.NombreProducto, e.PrecioUnitario, e.TotalVendidos);
                     }
-                    Console.WriteLine("Presione cualquier tecla para continuar");
-                    Console.ReadLine();
+                    table.Config = TableConfiguration.UnicodeAlt();
+                    Console.WriteLine(table.ToString());
                 }
             }
             catch (Exception)
             {
                 Console.WriteLine("Error en dato ingresado, por favor sólo ingrese numeros");
-                Console.WriteLine("Presione cualquier tecla para continuar");
-                Console.ReadLine();
             }
-    }
+        }
 
-    public void AllProducts()
-    {
-        Console.Clear();
-        var newlist = from e in _productos
-                      select new
-                      {
-                          totalPor = e.Cantidad * e.PrecioUnit
-                      };
-        if (newlist.Count() == 0)
+        public void AllProducts()
         {
-            Console.WriteLine("No existen productos disponibles");
-            Console.WriteLine("Presione cualquier tecla para continuar");
-            Console.ReadLine();
-        }
-        else
-        {
-            Console.WriteLine("TOTAL EN PRODUCTOS: ${0}", newlist.Sum(e => e.totalPor));
-            Console.WriteLine("Presione cualquier tecla para continuar");
-            Console.ReadLine();
+            Console.Clear();
+            var newlist = from e in _productos
+                        select new
+                        {
+                            totalPor = e.Cantidad * e.PrecioUnit
+                        };
+            if (newlist.Count() == 0)
+            {
+                Console.WriteLine("No existen productos disponibles");
+            }
+            else
+            {
+                var table = new Table("Total en inventario");
+                table.AddRow($"${newlist.Sum(e => e.totalPor)}");
+                table.Config = TableConfiguration.UnicodeAlt();
+                Console.WriteLine(table.ToString());
+            }
         }
     }
-}
 }

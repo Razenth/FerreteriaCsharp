@@ -14,14 +14,17 @@ namespace FerreteriaCsharp.Classes
             while (flag)
             {
                 Console.Clear();
-                Console.WriteLine("--------------------- MENU FERRETERIA ---------------------");
-                Console.WriteLine("1. LISTAR LOS PRODUCTOS DEL INVENTARIO");
-                Console.WriteLine("2. LISTAR LOS PRODUCTOS QUE ESTAN A PUNTO DE AGOTARSE");
-                Console.WriteLine("3. LISTAR LOS PRODUCTOS QUE SE DEBEN COMPRAR Y CUANTO");
-                Console.WriteLine("4. LISTAR EL TOTAL DE FACTURAS DEL MES DE ENERO DEL 2023");
-                Console.WriteLine("5. LISTAR LOS PRODUCTOS VENDIDOS DE UNA FACTURA");
-                Console.WriteLine("6. CALCULAR EL VALOR TOTAL DEL INVENTARIO");
-                Console.WriteLine("7. SALIR");
+                Console.WriteLine("╔═══════════════════════════════════════════════════╗");
+                Console.WriteLine("║            MENU PRINCIPAL FERRETERIA              ║");
+                Console.WriteLine("╠═══════════════════════════════════════════════════╣");
+                Console.WriteLine("╠ 1. PRODUCTOS DEL INVENTARIO                       ║");
+                Console.WriteLine("╠ 2. PRODUCTOS QUE ESTAN A PUNTO DE AGOTARSE        ║");
+                Console.WriteLine("╠ 3. PRODUCTOS QUE SE DEBEN COMPRAR Y CUANTO        ║");
+                Console.WriteLine("╠ 4. TOTAL DE FACTURAS DEL MES DE ENERO DEL 2023    ║");
+                Console.WriteLine("╠ 5. PRODUCTOS VENDIDOS DE UNA FACTURA              ║");
+                Console.WriteLine("╠ 6. VALOR TOTAL DEL INVENTARIO                     ║");
+                Console.WriteLine("╠ 7. SALIR                                          ║");
+                Console.WriteLine("╚═══════════════════════════════════════════════════╝");
                 Console.Write(".)");
                 string opt = Console.ReadLine();
                 switch (opt)
@@ -54,7 +57,7 @@ namespace FerreteriaCsharp.Classes
                         Console.Clear();
                         Console.WriteLine("Adios!");
                         flag = false;
-                        break;
+                        return;
 
                     default:
                         Console.Clear();
@@ -63,6 +66,8 @@ namespace FerreteriaCsharp.Classes
                         Console.ReadKey();
                         break;
                 }
+                Console.WriteLine("Presione cualquier tecla para continuar");
+                Console.ReadLine();
             }
         }
     }
