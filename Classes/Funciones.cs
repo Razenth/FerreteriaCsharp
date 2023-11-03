@@ -14,7 +14,7 @@ namespace FerreteriaCsharp.Classes
             new Productos(){Id = 4, Nombre = "Destornillador", PrecioUnit = 1000, Cantidad = 21, StockMin = 10, StockMax = 100},
             new Productos(){Id = 5, Nombre = "Tornillo", PrecioUnit = 500, Cantidad = 32, StockMin = 20, StockMax = 100},
             new Productos(){Id = 6, Nombre = "Martillo", PrecioUnit = 5500, Cantidad = 11, StockMin = 12, StockMax = 50},
-            new Productos(){Id = 7, Nombre = "Clavo", PrecioUnit = 100, Cantidad = 12, StockMin = 18, StockMax = 220},
+            new Productos(){Id = 7, Nombre = "Clavo", PrecioUnit = 200, Cantidad = 12, StockMin = 18, StockMax = 220},
             new Productos(){Id = 8, Nombre = "Corcho", PrecioUnit = 1800, Cantidad = 11, StockMin = 15, StockMax = 25}
         };
 
@@ -43,7 +43,7 @@ namespace FerreteriaCsharp.Classes
             Console.Clear();
             foreach (var e in _productos)
             {
-                Console.WriteLine("PRODUCTO {3}:\nNombre Producto: {0} \nPrecio Unitario: {1}\nCantidad Existente: {2}\n--------------------",
+                Console.WriteLine("PRODUCTO {3}:\nNombre Producto: {0} \nPrecio Unitario: {1}\nCantidad Existente: {2}\n--------------------------",
                 e.Nombre, e.PrecioUnit, e.Cantidad, _productos.IndexOf(e) + 1);
             }
             Console.WriteLine("Presione cualquier tecla para continuar");
@@ -130,58 +130,67 @@ namespace FerreteriaCsharp.Classes
         {
             Console.Clear();
             Console.Write("Digite el numero de la factura: ");
-            int nrBill = int.Parse(Console.ReadLine());
-            var newlist = _detalleFactura.Where(e => e.NroFactura == nrBill);
-            if (newlist.Count() == 0)
+            try
             {
-                Console.WriteLine("El número de factura digitada no existe");
-                Console.WriteLine("Presione cualquier tecla para continuar");
-                Console.ReadLine();
-            }
-            else
-            {
-                var ListProducts = from fa in newlist
-                                   join pr in _productos
-                                   on fa.IdProducto equals pr.Id
-                                   select new
-                                   {
-                                       NombreProducto = pr.Nombre,
-                                       PrecioUnitario = pr.PrecioUnit,
-                                       TotalVendidos = fa.Cantidad,
-                                       IdFactura = fa.NroFactura
-                                   };
-                Console.Clear();
-                Console.WriteLine("PRODUCTOS FACTURA {0}", nrBill);
-                foreach (var e in ListProducts)
+                Int128 nrBill = Int128.Parse(Console.ReadLine());
+                var newlist = _detalleFactura.Where(e => e.NroFactura == nrBill);
+                if (newlist.Count() == 0)
                 {
-                    Console.WriteLine("----------------------------\n Nombre Producto: {0}\n Precio Unitario: {1}\n Cantidad Comprada: {2}\n----------------------------",
-                        e.NombreProducto, e.PrecioUnitario, e.TotalVendidos);
+                    Console.WriteLine("El número de factura digitada no existe");
+                    Console.WriteLine("Presione cualquier tecla para continuar");
+                    Console.ReadLine();
                 }
+                else
+                {
+                    var ListProducts = from fa in newlist
+                                    join pr in _productos
+                                    on fa.IdProducto equals pr.Id
+                                    select new
+                                    {
+                                        NombreProducto = pr.Nombre,
+                                        PrecioUnitario = pr.PrecioUnit,
+                                        TotalVendidos = fa.Cantidad,
+                                        IdFactura = fa.NroFactura
+                                    };
+                    Console.Clear();
+                    Console.WriteLine("PRODUCTOS FACTURA {0}", nrBill);
+                    foreach (var e in ListProducts)
+                    {
+                        Console.WriteLine("----------------------------\n Nombre Producto: {0}\n Precio Unitario: {1}\n Cantidad Comprada: {2}\n----------------------------",
+                            e.NombreProducto, e.PrecioUnitario, e.TotalVendidos);
+                    }
+                    Console.WriteLine("Presione cualquier tecla para continuar");
+                    Console.ReadLine();
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Error en dato ingresado, por favor sólo ingrese numeros");
                 Console.WriteLine("Presione cualquier tecla para continuar");
                 Console.ReadLine();
             }
-        }
+    }
 
-        public void AllProducts()
+    public void AllProducts()
+    {
+        Console.Clear();
+        var newlist = from e in _productos
+                      select new
+                      {
+                          totalPor = e.Cantidad * e.PrecioUnit
+                      };
+        if (newlist.Count() == 0)
         {
-            Console.Clear();
-            var newlist = from e in _productos
-                          select new
-                          {
-                              totalPor = e.Cantidad * e.PrecioUnit
-                          };
-            if (newlist.Count() == 0)
-            {
-                Console.WriteLine("No hay facturas con esta fecha de creacion");
-                Console.WriteLine("Presione cualquier tecla para continuar");
-                Console.ReadLine();
-            }
-            else
-            {
-                Console.WriteLine("TOTAL EN PRODUCTOS: ${0}", newlist.Sum(e => e.totalPor));
-                Console.WriteLine("Presione cualquier tecla para continuar");
-                Console.ReadLine();
-            }
+            Console.WriteLine("No existen productos disponibles");
+            Console.WriteLine("Presione cualquier tecla para continuar");
+            Console.ReadLine();
+        }
+        else
+        {
+            Console.WriteLine("TOTAL EN PRODUCTOS: ${0}", newlist.Sum(e => e.totalPor));
+            Console.WriteLine("Presione cualquier tecla para continuar");
+            Console.ReadLine();
         }
     }
+}
 }
