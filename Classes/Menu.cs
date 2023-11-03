@@ -19,21 +19,40 @@ namespace FerreteriaCsharp.Classes
                 Console.WriteLine("2. LISTAR LOS PRODUCTOS QUE ESTAN A PUNTO DE AGOTARSE");
                 Console.WriteLine("3. LISTAR LOS PRODUCTOS QUE SE DEBEN COMPRAR Y CUANTO");
                 Console.WriteLine("4. LISTAR EL TOTAL DE FACTURAS DEL MES DE ENERO DEL 2023");
-                Console.WriteLine("5. LISTAR EL TOTAL DE FACTURAS DEL MES DE ENERO DEL 2023");
-                Console.WriteLine("6.  CALCULAR EL VALOR TOTAL DEL INVENTARIO");
+                Console.WriteLine("5. LISTAR LOS PRODUCTOS VENDIDOS DE UNA FACTURA");
+                Console.WriteLine("6. CALCULAR EL VALOR TOTAL DEL INVENTARIO");
+                Console.WriteLine("7. SALIR");
                 Console.Write(".)");
                 string opt = Console.ReadLine();
                 switch (opt)
                 {
                     case "1":
-                        // functions.ListProducts();
+                        functions.ListProducts();
+                        break;
+
+                    case "2":
+                        functions.EmptyProducts();
+                        break;
+
+                    case "3":
+                        functions.ProductsToBuy();
+                        break;
+
+                    case "4":
+                        functions.FebruaryBills();
+                        break;
+
+                    case "5":
+                        functions.ShowBillProducts();
+                        break;
+
+                    case "6":
+                        functions.AllProducts();
                         break;
 
                     case "7":
                         Console.Clear();
                         Console.WriteLine("Adios!");
-                        DateTime tiempo = new DateTime();
-                        Console.WriteLine(tiempo);
                         flag = false;
                         break;
 

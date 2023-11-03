@@ -8,7 +8,7 @@ namespace FerreteriaCsharp.Classes
     public class Factura
     {
         public int NroFactura { get; set; }
-        public DateTime Fecha { get; set; }
+        public DateOnly Fecha { get; set; }
         public int IdCliente { get; set; }
         public decimal TotalFactura { get; set; }
     }

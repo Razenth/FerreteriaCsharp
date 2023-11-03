@@ -12,3 +12,17 @@ C:\Users\APM02-039\Documents\SantiDocum\.Net\C#\FerreteriaCsharp\obj\Debug\net7.
 C:\Users\APM02-039\Documents\SantiDocum\.Net\C#\FerreteriaCsharp\obj\Debug\net7.0\FerreteriaCsharp.pdb
 C:\Users\APM02-039\Documents\SantiDocum\.Net\C#\FerreteriaCsharp\obj\Debug\net7.0\FerreteriaCsharp.genruntimeconfig.cache
 C:\Users\APM02-039\Documents\SantiDocum\.Net\C#\FerreteriaCsharp\obj\Debug\net7.0\ref\FerreteriaCsharp.dll
+C:\Santi Programa\SantiagoDocuments\NetCore\FerreteriaCsharp\bin\Debug\net7.0\FerreteriaCsharp.exe
+C:\Santi Programa\SantiagoDocuments\NetCore\FerreteriaCsharp\bin\Debug\net7.0\FerreteriaCsharp.deps.json
+C:\Santi Programa\SantiagoDocuments\NetCore\FerreteriaCsharp\bin\Debug\net7.0\FerreteriaCsharp.runtimeconfig.json
+C:\Santi Programa\SantiagoDocuments\NetCore\FerreteriaCsharp\bin\Debug\net7.0\FerreteriaCsharp.dll
+C:\Santi Programa\SantiagoDocuments\NetCore\FerreteriaCsharp\bin\Debug\net7.0\FerreteriaCsharp.pdb
+C:\Santi Programa\SantiagoDocuments\NetCore\FerreteriaCsharp\obj\Debug\net7.0\FerreteriaCsharp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Santi Programa\SantiagoDocuments\NetCore\FerreteriaCsharp\obj\Debug\net7.0\FerreteriaCsharp.AssemblyInfoInputs.cache
+C:\Santi Programa\SantiagoDocuments\NetCore\FerreteriaCsharp\obj\Debug\net7.0\FerreteriaCsharp.AssemblyInfo.cs
+C:\Santi Programa\SantiagoDocuments\NetCore\FerreteriaCsharp\obj\Debug\net7.0\FerreteriaCsharp.csproj.CoreCompileInputs.cache
+C:\Santi Programa\SantiagoDocuments\NetCore\FerreteriaCsharp\obj\Debug\net7.0\FerreteriaCsharp.dll
+C:\Santi Programa\SantiagoDocuments\NetCore\FerreteriaCsharp\obj\Debug\net7.0\refint\FerreteriaCsharp.dll
+C:\Santi Programa\SantiagoDocuments\NetCore\FerreteriaCsharp\obj\Debug\net7.0\FerreteriaCsharp.pdb
+C:\Santi Programa\SantiagoDocuments\NetCore\FerreteriaCsharp\obj\Debug\net7.0\FerreteriaCsharp.genruntimeconfig.cache
+C:\Santi Programa\SantiagoDocuments\NetCore\FerreteriaCsharp\obj\Debug\net7.0\ref\FerreteriaCsharp.dll
